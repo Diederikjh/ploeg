@@ -2,6 +2,7 @@ import fitz  # PyMuPDF
 import re
 import os
 import pandas as pd
+import argparse  # Added for command-line argument parsing
 
 def extract_municipal_data(pdf_path):
     """
@@ -88,14 +89,17 @@ def process_pdf_directory(directory_path):
 
 # --- Main Execution ---
 if __name__ == "__main__":
-    # *** IMPORTANT: SET THIS TO THE FOLDER CONTAINING YOUR PDFS ***
-    pdf_folder = "/path/to/your/municipal/accounts/pdfs" # Use forward slashes / even on Windows
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Process municipal electricity PDF files.")
+    parser.add_argument("pdf_folder", type=str, help="Path to the folder containing the PDF files.")
+    args = parser.parse_args()
+
+    pdf_folder = args.pdf_folder
 
     # --- Check if the directory exists ---
-    if not os.path.isdir(pdf_folder) or pdf_folder == "/path/to/your/municipal/accounts/pdfs":
+    if not os.path.isdir(pdf_folder):
          print("="*50)
-         print("ERROR: Please update the 'pdf_folder' variable in the script")
-         print("       to the actual path where your PDF files are located.")
+         print("ERROR: The specified directory does not exist.")
          print("="*50)
     else:
         # Process the PDFs and get the data
@@ -104,7 +108,7 @@ if __name__ == "__main__":
         # Display the results
         if not df_results.empty:
             print("\n--- Extracted Data ---")
-            print(df_results.to_string()) # Use to_string() to show all rows/cols
+            print(df_results.to_string())  # Use to_string() to show all rows/cols
 
             # --- Optional: Save to CSV ---
             try:

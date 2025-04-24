@@ -6,6 +6,8 @@
 
 This Python project extracts electricity consumption and rate data from municipal PDF files. It processes all PDFs in a specified directory, extracts relevant data using regular expressions, and outputs the results as a CSV file.
 
+Built for PDFs that City of Cape Town generates for its customers.
+
 ## Features
 
 - Extracts total electricity consumption (in kWh) from PDF files.
@@ -29,11 +31,10 @@ pip install -r requirements.txt
 ## Usage
 
 1. Clone this repository or copy the script to your local machine.
-2. Update the `pdf_folder` variable in `ploeg.py` to point to the directory containing your PDF files.
-3. Run the script:
+2. Run the script, passing in the path to where the municipal PDFs are located:
 
 ```bash
-python ploeg.py
+python ploeg.py /path/to/your/pdf/folder
 ```
 
 4. If the script successfully processes the PDFs, it will display the extracted data in the console and save it as a CSV file (`extracted_electricity_data.csv`) in the same directory as the PDFs.
@@ -49,7 +50,7 @@ After running the script, the extracted data will be displayed in the console an
 
 ```
 --- Extracted Data ---
-      filename  total_consumption_kwh                                                                rates
+      filename  total_consumption_kwh  rates
 0  01 2025.PDF                 1203.0  [{'kwh': 670.685, 'rate': 2.987}, {'kwh': 532.315, 'rate': 4.1338}]
 1  03 2025.PDF                  761.0  [{'kwh': 552.329, 'rate': 2.987}, {'kwh': 208.671, 'rate': 4.1338}]
 2  04 2025.PDF                  889.0  [{'kwh': 572.055, 'rate': 2.987}, {'kwh': 316.945, 'rate': 4.1338}]
