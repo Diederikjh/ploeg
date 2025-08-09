@@ -47,8 +47,6 @@ function parseBillText(filename, text) {
     data.total_charge = parseFloat(totalChargeMatch[1]);
   }
 
-  console.log("Extracted data:", data);
-
   return data
 }
 
