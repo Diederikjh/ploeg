@@ -25,6 +25,12 @@
 <h1>PLOEG</h1>
 <h2>City of Cape Town Bill PDF Parser (Test)</h2>
 <div id="dropZone">Drop PDF files here or click to select</div>
+
+<canvas id="usageChart"></canvas>
+<canvas id="rateBreakdownChart"></canvas>
+<canvas id="chargeChart"></canvas>
+
+
 <input type="file" id="fileInput" accept="application/pdf" multiple style="display:none">
 
 <!-- Using anchient version of pdf.js for local dev  -->
@@ -33,6 +39,7 @@
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
 </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script src="parsing.js"></script>
 <script src="main.js"></script>
