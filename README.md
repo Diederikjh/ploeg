@@ -1,19 +1,23 @@
 # README.md
 
-# Municipal Electricity Data Scraper from PDF
+# City of Cape Town Municipal Electricity Data Scraper from PDF
 
 (A type of scraper in Afrikaans is a [ploeg](https://af.wikipedia.org/wiki/Ploeg))
 
-See [live version of the site here](https://diederikjh.github.io/ploeg/).
+See [live version of the site here](https://diederikjh.github.io/ploeg/).  (It is client only, so your data is never sent to a server.)
 
 This project extracts electricity consumption and rate data from municipal PDF files. It includes both a Python command-line tool and a web-based interface for processing PDFs with interactive data visualization.
 
 Built for PDFs that City of Cape Town generates for its customers.
 
+![Ploeg Web Interface](img/ploeg.png)
+
 ## Features
 
+- **Web Interface**: Drag-and-dro (like it's 1999) PDF processing with interactive charts showing usage trends, tiered consumption breakdown, and charge analysis over time.  You can also download the CSV raw data.
+
 - **Python CLI Tool**: Extracts total electricity consumption (in kWh) from PDF files, extracts tiered electricity rates, processes all PDF files in a specified directory, and outputs results as CSV
-- **Web Interface**: Drag-and-drop PDF processing with interactive charts showing usage trends, tiered consumption breakdown, and charge analysis over time
+
 - **Enhanced Data Extraction**: Extracts consumption, daily averages, billing periods, tiered rates, and total charges
 - **Data Visualization**: Interactive charts using Chart.js for analyzing electricity usage patterns
 
