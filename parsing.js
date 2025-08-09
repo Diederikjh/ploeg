@@ -42,7 +42,7 @@ function parseBillText(filename, text) {
   }
 
  // Extract total charge by number just before '&   Home User Charge '
-  const totalChargeMatch = text.match(/(\d+(?:\.\d+)?)\s*&\s+Home User Charge /);
+  const totalChargeMatch = text.match(/(\d+(?:\.\d+)?)\s*&\s+(Home User Charge|Service and wires charge)/i);
   if (totalChargeMatch) {
     data.total_charge = parseFloat(totalChargeMatch[1]);
   }
