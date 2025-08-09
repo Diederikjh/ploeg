@@ -57,3 +57,8 @@ function downloadCsv(csvContent, filename) {
     document.body.removeChild(link);
   }
 }
+
+// Export for Node.js testing
+if (typeof module !== "undefined") {
+  module.exports = { exportToCsv, generateCsvContent, downloadCsv };
+}

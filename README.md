@@ -86,4 +86,17 @@ Each parsed PDF contributes data points that are automatically sorted by billing
 
 ## Testing
 
-run `node ./tests/testParsing.js` for running tests.
+Run parsing tests:
+```bash
+node ./tests/testParsing.js
+```
+
+Run CSV export tests:
+```bash
+node ./tests/testCsv.js
+```
+
+Run all tests:
+```bash
+node ./tests/testParsing.js && node ./tests/testCsv.js
+```
