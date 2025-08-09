@@ -4,6 +4,8 @@
 
 (A type of scraper in Afrikaans is a [ploeg](https://af.wikipedia.org/wiki/Ploeg))
 
+See [live version of the site here](https://diederikjh.github.io/ploeg/).
+
 This project extracts electricity consumption and rate data from municipal PDF files. It includes both a Python command-line tool and a web-based interface for processing PDFs with interactive data visualization.
 
 Built for PDFs that City of Cape Town generates for its customers.
