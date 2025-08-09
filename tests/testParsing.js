@@ -8,6 +8,15 @@ function assertAlmostEqual(actual, expected, tol = 1e-6) {
   }
 }
 
+function assertDateEqual(actual, expected) {
+  if (!(actual instanceof Date)) {
+    throw new Error(`Expected a Date object but got ${typeof actual}`);
+  }
+  if (actual.getTime() !== expected.getTime()) {
+    throw new Error(`Date mismatch: expected ${expected.toISOString()}, got ${actual.toISOString()}`);
+  }
+}
+
 function runTests() {
   console.log("Running tests...");
 
@@ -50,6 +59,9 @@ const sampleText = `
 
     const result = parseBillText("real_bill.pdf", sampleText);
 
+    const expectedStartDate = new Date(2025, 0, 18); // January is month 0
+    const expectedEndDate = new Date(2025, 1, 18);   // February is month 1
+
     try {
         assertAlmostEqual(result.total_consumption_kwh, 889);
         assertAlmostEqual(result.daily_average_kwh, 27.781);
@@ -59,6 +71,9 @@ const sampleText = `
         assertAlmostEqual(result.rates[0].rate, 2.987);
         assertAlmostEqual(result.rates[1].kwh, 257.767);
         assertAlmostEqual(result.rates[1].rate, 4.1338);
+
+        assertDateEqual(result.start_date, expectedStartDate);
+        assertDateEqual(result.end_date, expectedEndDate);
 
         console.log("All tests passed!");
     } catch (e) {
