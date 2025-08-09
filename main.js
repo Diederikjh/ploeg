@@ -51,18 +51,25 @@ async function extractPdfText(file) {
 
   return fullText;
 }
-
 function parseBillText(filename, text) {
   const data = {
     filename,
     total_consumption_kwh: null,
+    daily_average_kwh: null,
+    total_charge: null,
     rates: []
   };
 
-  // Match consumption
+  // Match total consumption
   const consumptionMatch = text.match(/Consumption\s+(\d+\.\d+)\s+kWh/i);
   if (consumptionMatch) {
     data.total_consumption_kwh = parseFloat(consumptionMatch[1]);
+  }
+
+  // Match daily average
+  const dailyAvgMatch = text.match(/Daily average\s+([\d.]+)\s+kWh/i);
+  if (dailyAvgMatch) {
+    data.daily_average_kwh = parseFloat(dailyAvgMatch[1]);
   }
 
   // Match tiered rates
@@ -72,6 +79,12 @@ function parseBillText(filename, text) {
       kwh: parseFloat(m[1]),
       rate: parseFloat(m[2])
     });
+  }
+
+ // Extract total charge by number just before '&   Home User Charge '
+  const totalChargeMatch = text.match(/(\d+(?:\.\d+)?)\s*&\s+Home User Charge /);
+  if (totalChargeMatch) {
+    data.total_charge = parseFloat(totalChargeMatch[1]);
   }
 
   console.log("Extracted data:", data);
