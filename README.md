@@ -14,7 +14,7 @@ Built for PDFs that City of Cape Town generates for its customers.
 
 ## Features
 
-- **Web Interface**: Drag-and-dro (like it's 1999) PDF processing with interactive charts showing usage trends, tiered consumption breakdown, and charge analysis over time.  You can also download the CSV raw data.
+- **Web Interface**: Drag-and-drop (like it's 1999) PDF processing with interactive charts showing usage trends, tiered consumption breakdown, and charge analysis over time.  You can also download the CSV raw data.
 
 - **Python CLI Tool**: Extracts total electricity consumption (in kWh) from PDF files, extracts tiered electricity rates, processes all PDF files in a specified directory, and outputs results as CSV
 
