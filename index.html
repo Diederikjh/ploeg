@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF Bill Parser Test</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  #dropZone {
+    border: 2px dashed #999;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  #dropZone.dragover {
+    border-color: #333;
+    color: #000;
+    background: #f0f0f0;
+  }
+</style>
+</head>
+<body>
+
+<h1>PLOEG</h1>
+<h2>City of Cape Town Bill PDF Parser (Test)</h2>
+<div id="dropZone">Drop PDF files here or click to select</div>
+<input type="file" id="fileInput" accept="application/pdf" multiple style="display:none">
+
+<!-- Using anchient version of pdf.js for local dev  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js";
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>
