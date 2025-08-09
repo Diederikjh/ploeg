@@ -93,26 +93,52 @@ function renderCharts(data) {
       labels,
       datasets: [
         {
-          label: 'Total Consumption (kWh)',
-          data: totalConsumptionData,
-          borderColor: 'blue',
-          fill: false,
-          tension: 0.1
+            label: 'Total Consumption (kWh)',
+            data: totalConsumptionData,
+            borderColor: 'blue',
+            yAxisID: 'y',      // Left axis
+            fill: false,
+            tension: 0.1,
         },
         {
-          label: 'Daily Average (kWh)',
-          data: dailyAverageData,
-          borderColor: 'green',
-          fill: false,
-          tension: 0.1
+            label: 'Daily Average (kWh)',
+            data: dailyAverageData,
+            borderColor: 'green',
+            yAxisID: 'y1',     // Right axis
+            fill: false,
+            tension: 0.1,
         }
-      ]
+        ]
+
     },
     options: {
       responsive: true,
       interaction: { mode: 'index', intersect: false },
       plugins: { title: { display: true, text: 'Electricity Usage Over Time' } },
-      scales: { y: { beginAtZero: true } }
+      scales: {
+        y: {
+            type: 'linear',
+            position: 'left',
+            beginAtZero: true,
+            title: {
+            display: true,
+            text: 'Total Consumption (kWh)'
+            }
+        },
+        y1: {
+            type: 'linear',
+            position: 'right',
+            beginAtZero: true,
+            grid: {
+            drawOnChartArea: false   // disables grid lines on right axis to avoid clutter
+            },
+            title: {
+            display: true,
+            text: 'Daily Average (kWh)'
+            }
+        }
+        }
+
     }
   });
 
